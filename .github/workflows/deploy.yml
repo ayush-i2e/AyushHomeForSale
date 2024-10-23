@@ -2,7 +2,7 @@
 on:
   push:
     branches:
-      - main  # Replace with your default branch if necessary
+      - main 
  
 jobs:
   build:
@@ -27,4 +27,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist/AyushHomesForSale/homes-app  # Replace with your Angular app folder
+        publish_dir: ./dist/AyushHomesForSale/homes-app  
