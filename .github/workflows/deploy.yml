@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger the action on pushes to the main branch
+      - main 
  
 jobs:
   build:
@@ -28,5 +28,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist/AyushHomesForSale # Make sure this matches the build output directory
+        publish_dir: ./dist/AyushHomesForSale 
         
