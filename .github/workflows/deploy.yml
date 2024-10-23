@@ -1,15 +1,16 @@
-
+name: Deploy to GitHub Pages
+ 
 on:
   push:
     branches:
-      - main 
+      - main  # Replace 'main' with the branch name you are using, if different.
  
 jobs:
   build:
     runs-on: ubuntu-latest
  
     steps:
-    - name: Checkout code
+    - name: Checkout repository content
       uses: actions/checkout@v2
  
     - name: Set up Node.js
@@ -18,13 +19,15 @@ jobs:
         node-version: '23'
  
     - name: Install dependencies
+      working-directory: homes-app  # Specify the correct path to your app
       run: npm install
  
-    - name: Build Angular project
+    - name: Build the Angular project
+      working-directory: homes-app  # Specify the correct path to your app
       run: npm run build --prod
  
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: homes-app/dist/AyushHomesForSale
+        publish_dir: homes-app/dist/AyushHomesForSale  # Ensure this matches the folder name in the dist directory
