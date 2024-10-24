@@ -30,6 +30,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./homes-app/dist
-          user_name: ayush-i2e
-          user_email: ayush.jhota@i2econsulting.com
+          publish_dir: ./homes-app/docs
