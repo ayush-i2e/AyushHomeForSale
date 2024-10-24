@@ -1,33 +1,33 @@
 name: Deploy to GitHub Pages
- 
+
 on:
   push:
     branches:
-      - main 
- 
+      - main
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
- 
+
     steps:
-    - name: Checkout repository content
-      uses: actions/checkout@v2
- 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '23'
- 
-    - name: Install dependencies
-      working-directory: homes-app  
-      run: npm install
- 
-    - name: Build the Angular project
-      working-directory: homes-app 
-      run: npm run build --prod
- 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: homes-app/dist/AyushHomesForSale  
+      - name: Checkout repository content
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '23'
+        
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the Angular project
+        run: npm run build --prod
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/AyushHomesForSale
+          user_name: ayush-i2e
+          user_email: ayush.jhota@i2econsulting.com
