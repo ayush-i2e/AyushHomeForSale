@@ -1,32 +1,24 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
     branches:
-      - master  # Ensure this is your main branch; change to 'main' if that's your default branch
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Checkout repository content
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '23'  # Make sure this is the version you need
-
-    - name: Install dependencies
-      working-directory: homes-app  # Specify the correct path to your app (if your app is in a sub-folder)
-      run: npm install
-
-    - name: Build the Angular project
-      working-directory: homes-app  # Same as above
-      run: npm run build --prod
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: homes-app/dist  # Ensure this is the correct output directory
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Build
+        run: |
+          npm install
+          npm run build
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use your PAT secret here
+          publish_dir: homes-app/dist  # Adjust path to your output directory
