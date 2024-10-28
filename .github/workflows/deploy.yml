@@ -29,4 +29,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: homes-app/dist/AyushHomesForSale  # Ensure this is the correct output directory
+        publish_dir: homes-app/dist  # Ensure this is the correct output directory
