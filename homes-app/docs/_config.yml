@@ -1,0 +1,5 @@
+title: Ayush Homes For Sale
+description: Your site description goes here.
+baseurl: "/AyushHomesForSale"  # Adjust this to your repository name
+url: "https://ayush-i2e.github.io"  # Your GitHub username
+theme: jekyll-theme-primer  # or your chosen theme
