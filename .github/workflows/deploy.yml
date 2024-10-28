@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Replace 'main' with the branch name you are using, if different.
+      - master  
 jobs:
   build:
     runs-on: ubuntu-latest
